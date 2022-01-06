@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="hoved">
+    <h1> Avkrysningsbokser </h1>
+
+    <div class="checkboxradio" >
+        <h3>Påstander</h3>
+        <h4> Jorda er flat </h4>
+        <label>
+            <input type="checkbox" value="Enig i at jorden er flat" id="1enig"> Enig
+        </label>
+        <label>
+            <input type="checkbox" value="Uenig i at jorden er flat" id="1uenig"> Uenig
+        </label>
+        <h4>Himmelen er blå</h4>
+        <label>
+            <input type="checkbox" value="Enig i at himmelen er blå" id="2enig"> Enig
+        </label>
+        <label>
+            <input type="checkbox" value="Uenig i at himmelen er blå" id="2uenig"> Uenig
+        </label>
+        <h4>Sirkel har fire kanter</h4>
+        <label>
+            <input type="checkbox" value="Enig i at en sirkel har fire kanter" id="3enig"> Enig
+        </label>
+        <label>
+            <input type="checkbox" value="Uenig i at en sirkel har fire kanter" id="3uenig"> Uenig
+        </label>
+        <p></p>
+
+        <button>Velg</button>
+        <button> Vis resultat</button>
+
+
+
+        <p>Jorden er rund</p>
+        <div class="container">
+            <div class="skills html"></div>
+        </div>
+
+        <p>himmelen er blå</p>
+        <div class="container">
+            <div class="skills css"></div>
+        </div>
+
+        <p>JavaScript</p>
+        <div class="container">
+            <div class="skills js"></div>
+        </div>
+
+        <p>PHP</p>
+        <div class="container">
+            <div class="skills php"></div>
+        </div>
+    </div>
+    </div>
+
+        <script>
+            // Henter elementene
+            let cbEl = document.querySelectorAll("input[type='checkbox']");
+            let resultatEl = document.querySelector("p");
+            let knappEl = document.querySelector("button");
+            let knapp1EL = document.querySelector("button1")
+
+            // Legger til en lytter på knappen
+            knappEl.addEventListener("click" , visValg);
+            knapp1El.addEventListener("click", visValg);
+
+            // Funksjon som finner ut hvilke avkrysningsbokser som er valgt
+            function visValg() {
+                // Lager en tekst der vi bygger opp en enkel liste
+                liste = "<ul>";
+
+                // Går gjennom alle avkrysningsboksene og sjekker om de er huket av
+                for (let i = 0; i < cbEl.length; i++) {
+                    if (cbEl[i].checked) {
+                        liste += "<li>" + cbEl[i].value + "</li>";
+                    }
+                }
+
+                liste += "</ul>";
+
+                resultatEl.innerHTML = "Du er " + liste;
+            }
+
+            //Diagram
+
+
+        </script>
+
+<style>
+    body {
+        background-color: #f5f5f5;
+        font-family: Georgia, serif;
+    }
+    #hoved {
+        width: 60%;
+        margin: 50px auto;
+        padding: 40px;
+        background-color: white;
+        border: 1px solid #cccccc;
+    }
+
+    h1, h2, h3 {
+        font-family: Arial, sans-serif;
+    }
+    .checkboxradio > label {
+        display: block;
+    }
+
+    /* Make sure that padding behaves as expected */
+    * {box-sizing:border-box}
+
+    /* Container for skill bars */
+    .container {
+        width: 100%; /* Full width */
+        background-color: #ddd; /* Grey background */
+    }
+
+    .skills {
+        text-align: right; /* Right-align text */
+        padding-top: 10px; /* Add top padding */
+        padding-bottom: 10px; /* Add bottom padding */
+        color: white; /* White text color */
+    }
+
+    .html {width: 90%; background-color: #04AA6D;} /* Green */
+    .css {width: 80%; background-color: #2196F3;} /* Blue */
+    .js {width: 65%; background-color: #f44336;} /* Red */
+    .php {width: 60%; background-color: #808080;} /* Dark Grey */
+</style>
+
+</body>
+</html>
